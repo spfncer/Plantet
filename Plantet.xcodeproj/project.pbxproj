@@ -12,6 +12,7 @@
 		6F353A452B2E81630088CD35 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F353A442B2E81630088CD35 /* Item.swift */; };
 		6F353A472B2E81640088CD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F353A462B2E81640088CD35 /* Assets.xcassets */; };
 		6F353A4A2B2E81640088CD35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F353A492B2E81640088CD35 /* Preview Assets.xcassets */; };
+		6F353A532B2E8F060088CD35 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F353A522B2E8F060088CD35 /* PlantCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		6F353A442B2E81630088CD35 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6F353A462B2E81640088CD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F353A492B2E81640088CD35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6F353A522B2E8F060088CD35 /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				6F353A402B2E81630088CD35 /* PlantetApp.swift */,
 				6F353A422B2E81630088CD35 /* ContentView.swift */,
 				6F353A442B2E81630088CD35 /* Item.swift */,
+				6F353A522B2E8F060088CD35 /* PlantCard.swift */,
 				6F353A462B2E81640088CD35 /* Assets.xcassets */,
 				6F353A482B2E81640088CD35 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				6F353A432B2E81630088CD35 /* ContentView.swift in Sources */,
 				6F353A452B2E81630088CD35 /* Item.swift in Sources */,
 				6F353A412B2E81630088CD35 /* PlantetApp.swift in Sources */,
+				6F353A532B2E8F060088CD35 /* PlantCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
