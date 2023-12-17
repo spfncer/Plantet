@@ -1,0 +1,3 @@
+# Plantet
+
+This application is created as an exploration of Swift, SwiftUI, and Xcode. More details will be added here as I work on the project...
