@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct PlantCard: View{
-    @State var expanded = false
     static var id = 0
     let name: String
     let len: Int
-    let status: Bool
     var localID = 0
     
-    mutating func PlantCard(){
-        localID = Plantet.PlantCard.id
+    init(name: String, len: Int) {
+        self.name = name
+        self.len = len
+        self.localID = Plantet.PlantCard.id
         Plantet.PlantCard.id+=1
     }
     

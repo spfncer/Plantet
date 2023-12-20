@@ -10,19 +10,19 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var plants: [Plant]
     var body: some View {
-        NavigationView { // Add NavigationView here
+        NavigationView {
             Grid{
                 GridRow{
                     NavigationLink(destination: PlantPage(item: "Example")) {
-                        PlantCard(name: "Example", len: 500, status: true)
+                        PlantCard(name: "Example", len: 500)
                             .onTapGesture(count: 2) {
                                 print("Double tapped!")
                             }
                     }
                     NavigationLink(destination: PlantPage(item: "Second")) {
-                        PlantCard(name: "Second", len: 30, status: true)
+                        PlantCard(name: "Second", len: 30)
                             .onTapGesture(count: 2) {
                                 print("Double tapped!")
                             }
@@ -43,5 +43,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: Plant.self, inMemory: true)
 }
