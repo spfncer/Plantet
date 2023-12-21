@@ -11,34 +11,32 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var plants: [Plant]
+    
+    let grids = [GridItem(.adaptive(minimum: 175))]
     var body: some View {
-        NavigationView {
-            Grid{
-                GridRow{
-                    NavigationLink(destination: PlantPage(item: "Example")) {
-                        PlantCard(name: "Example", len: 500)
-                            .onTapGesture(count: 2) {
-                                print("Double tapped!")
+        VStack{
+            NavigationView {
+                ScrollView(.vertical){
+                    LazyVGrid(columns: grids){
+                        ForEach(plants, id: \.self){ plant in
+                            NavigationLink(destination: PlantPage(item: plant.name)) {
+                                PlantCard(name: plant.name, len: 500)
+                                    .onTapGesture(count: 2) {
+                                        print("Double tapped!")
+                                    }
                             }
+                        }
                     }
-                    NavigationLink(destination: PlantPage(item: "Second")) {
-                        PlantCard(name: "Second", len: 30)
-                            .onTapGesture(count: 2) {
-                                print("Double tapped!")
-                            }
-                    }
-                }
-                Spacer()
-            }
-            .toolbar{
-                ToolbarItem(placement: .navigationBarLeading){
-                    Text("Plantet")
-                        .font(.system(size: 32, weight: .bold))
+                    .navigationTitle("Plantet")
                 }
             }
+            Button("Add Plant"){
+                let newPlant = Plant(datePlanted: Date(), frequency: Frequency.xDays(3), name: "Planty", species: "JJ", light: Lighting.direct, lastPruned: Date(), lastFertilized: Date())
+                modelContext.insert(newPlant)
+            }
+            
         }
     }
-
 }
 
 #Preview {
