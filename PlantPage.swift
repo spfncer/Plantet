@@ -22,6 +22,9 @@ struct PlantPage: View {
                 cv.goHome()
             }
             .foregroundColor(.red)
+//            Button("Printer"){
+//                print(path)
+//            }
         }
     }
 }
