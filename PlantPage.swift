@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PlantPage: View {
-    var item: String
+    var item: Plant
+    var all: ModelContext
+    var cv : ContentView
 
     var body: some View {
-        Text("Details for \(item)")
+        VStack{
+            Text("Details for \(item.name)")
+            Text("This is #\(item.id)")
+            Button("Delete"){
+                cv.remove(item)
+                cv.goHome()
+            }
+            .foregroundColor(.red)
+        }
     }
 }
