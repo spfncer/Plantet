@@ -13,6 +13,7 @@ struct ContentView: View {
     @Query private var plants: [Plant]
     @State private var navpath: [Plant] = []
     @State private var animateGradient = false
+    @State private var editing = false
     let grids = [GridItem(.adaptive(minimum: 175))]
     
     func goHome(){
@@ -24,7 +25,7 @@ struct ContentView: View {
     }
     
     func add(){
-        let newPlant = Plant(datePlanted: Date(), frequency: Frequency.xDays(3), name: "Planty", species: "JJ", light: Lighting.direct, lastPruned: Date(), lastFertilized: Date())
+        let newPlant = Plant(datePlanted: Date(), frequency: Frequency.xDays(3), name: "Planty", species: "The Potted Plant", light: Lighting.direct, lastPruned: Date(), lastFertilized: Date())
         modelContext.insert(newPlant)
     }
     
@@ -35,7 +36,7 @@ struct ContentView: View {
                     LazyVGrid(columns: grids){
                         ForEach(plants, id: \.self){ plant in
                             NavigationLink(value: plant){
-                                PlantCard(name: plant.name, len: 30)
+                                PlantCard(item:plant, editing: $editing, remove:remove)
                                     .onTapGesture(count:2){
                                         print("Double Tapped!")
                                     }
@@ -43,13 +44,13 @@ struct ContentView: View {
                         }
                     }
                     .navigationDestination(for:Plant.self){ plant in
-                        PlantPage(item: plant, all: modelContext, cv: self)
+                        PlantPage(item: plant, all: modelContext, remove: remove, goHome: goHome)
                     }
                     .navigationTitle("Plantet")
                     .toolbar{
                         ToolbarItem(placement: .topBarTrailing){
-                            Button("Edit"){
-                                //code
+                            Button(editing ? "Done" : "Edit"){
+                                editing.toggle()
                             }
                         }
                     }

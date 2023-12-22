@@ -13,6 +13,7 @@
 		6F353A472B2E81640088CD35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F353A462B2E81640088CD35 /* Assets.xcassets */; };
 		6F353A4A2B2E81640088CD35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F353A492B2E81640088CD35 /* Preview Assets.xcassets */; };
 		6F353A532B2E8F060088CD35 /* PlantCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F353A522B2E8F060088CD35 /* PlantCard.swift */; };
+		6F7AF49B2B353C4700B23FB3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F7AF49A2B353C4700B23FB3 /* Home.swift */; };
 		6FDADFAB2B3280D800F189B0 /* Plant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FDADFAA2B3280D800F189B0 /* Plant.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		6F353A462B2E81640088CD35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6F353A492B2E81640088CD35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6F353A522B2E8F060088CD35 /* PlantCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCard.swift; sourceTree = "<group>"; };
+		6F7AF49A2B353C4700B23FB3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		6FDADFAA2B3280D800F189B0 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +59,7 @@
 		6F353A3F2B2E81630088CD35 /* Plantet */ = {
 			isa = PBXGroup;
 			children = (
+				6F7AF49A2B353C4700B23FB3 /* Home.swift */,
 				6F0D03FE2B3148790008AEE8 /* PlantPage.swift */,
 				6F353A402B2E81630088CD35 /* PlantetApp.swift */,
 				6FDADFAA2B3280D800F189B0 /* Plant.swift */,
@@ -150,6 +153,7 @@
 				6F353A412B2E81630088CD35 /* PlantetApp.swift in Sources */,
 				6F0D03FF2B3148790008AEE8 /* PlantPage.swift in Sources */,
 				6FDADFAB2B3280D800F189B0 /* Plant.swift in Sources */,
+				6F7AF49B2B353C4700B23FB3 /* Home.swift in Sources */,
 				6F353A532B2E8F060088CD35 /* PlantCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

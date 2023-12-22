@@ -11,15 +11,16 @@ import SwiftData
 struct PlantPage: View {
     var item: Plant
     var all: ModelContext
-    var cv : ContentView
+    var remove: (Plant)->Void
+    var goHome: ()->Void
 
     var body: some View {
         VStack{
             Text("Details for \(item.name)")
             Text("This is #\(item.id)")
             Button("Delete"){
-                cv.remove(item)
-                cv.goHome()
+                remove(item)
+                goHome()
             }
             .foregroundColor(.red)
         }

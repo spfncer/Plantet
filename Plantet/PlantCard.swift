@@ -9,18 +9,21 @@ import SwiftUI
 
 struct PlantCard: View{
     static var id = 0
-    let name: String
-    let len: Int
     var localID = 0
+    var item: Plant
+    var remove: (Plant)->Void
+    @Binding var editing: Bool
     
-    init(name: String, len: Int) {
-        self.name = name
-        self.len = len
+    init(item: Plant, editing: Binding<Bool>, remove: @escaping (Plant)->Void) {
+        self.item = item
         self.localID = Plantet.PlantCard.id
         Plantet.PlantCard.id+=1
+        self._editing = editing
+        self.remove = remove
     }
     
     var body: some View{
+        ZStack(alignment:Alignment(horizontal: .leading, vertical: .top)){
             VStack{
                 Image("Plant Placeholder")
                     .resizable()
@@ -29,12 +32,12 @@ struct PlantCard: View{
                     .shadow(radius: 5)
                 VStack(alignment: .leading){
                     Spacer()
-                    Text(name)
+                    Text(item.name)
                         .font(.headline)
                         .frame(maxWidth:.infinity, alignment: .leading)
                         .padding(.leading)
                         .foregroundColor(Color("TextColor"))
-                    Text(String(len))
+                    Text(String(item.species))
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                         .frame(maxWidth:.infinity, alignment: .leading)
@@ -45,5 +48,26 @@ struct PlantCard: View{
             .frame(width:175, height: 250)
             .id(localID)
             .transition(.scale)
+            
+                if(editing){
+                        ZStack{
+                            Circle()
+                                .foregroundStyle(Color(.red))
+                                .frame(width: 50)
+                                .shadow(radius: 20)
+                            Button(action: {()->Void in remove(item)}){
+                                Image(systemName: "minus")
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 30, weight: .bold))
+                                    .frame(width: 50, height: 50)
+                        }
+                }
+            }
+        }
     }
+}
+
+#Preview {
+    ContentView()
+        .modelContainer(for: Plant.self, inMemory: true)
 }
