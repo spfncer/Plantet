@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6F0D03FE2B3148790008AEE8 /* PlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantPage.swift; sourceTree = "<group>"; };
+		6F0D03FE2B3148790008AEE8 /* PlantPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlantPage.swift; path = ../PlantPage.swift; sourceTree = "<group>"; };
 		6F353A3D2B2E81630088CD35 /* Plantet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Plantet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F353A402B2E81630088CD35 /* PlantetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantetApp.swift; sourceTree = "<group>"; };
 		6F353A422B2E81630088CD35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,7 +41,6 @@
 		6F353A342B2E81630088CD35 = {
 			isa = PBXGroup;
 			children = (
-				6F0D03FE2B3148790008AEE8 /* PlantPage.swift */,
 				6F353A3F2B2E81630088CD35 /* Plantet */,
 				6F353A3E2B2E81630088CD35 /* Products */,
 			);
@@ -58,6 +57,7 @@
 		6F353A3F2B2E81630088CD35 /* Plantet */ = {
 			isa = PBXGroup;
 			children = (
+				6F0D03FE2B3148790008AEE8 /* PlantPage.swift */,
 				6F353A402B2E81630088CD35 /* PlantetApp.swift */,
 				6FDADFAA2B3280D800F189B0 /* Plant.swift */,
 				6F353A422B2E81630088CD35 /* ContentView.swift */,
