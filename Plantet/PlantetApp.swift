@@ -11,14 +11,14 @@ import SwiftData
 @main
 struct PlantetApp: App {
     var sharedModelContainer: ModelContainer
-
+    
     init() {
         sharedModelContainer = {
             let schema = Schema([
                 Plant.self,
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+            
             do {
                 return try ModelContainer(for: schema, configurations: [modelConfiguration])
             } catch {

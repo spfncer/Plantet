@@ -49,23 +49,24 @@ struct PlantCard: View{
             .id(localID)
             .transition(.scale)
             
-                if(editing){
-                        ZStack{
-                            Circle()
-                                .foregroundStyle(Color(.red))
-                                .frame(width: 50)
-                                .shadow(radius: 20)
-                            Button(action: {()->Void in remove(item)}){
-                                Image(systemName: "minus")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 30, weight: .bold))
-                                    .frame(width: 50, height: 50)
-                        }
+            if(editing){
+                ZStack{
+                    Circle()
+                        .foregroundStyle(Color(.red))
+                        .frame(width: 50)
+                        .shadow(radius: 20)
+                    Button(action: {()->Void in remove(item)}){
+                        Image(systemName: "minus")
+                            .foregroundColor(.white)
+                            .font(.system(size: 30, weight: .bold))
+                            .frame(width: 50, height: 50)
+                    }
                 }
             }
         }
     }
 }
+
 
 #Preview {
     ContentView()
