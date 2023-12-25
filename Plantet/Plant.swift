@@ -15,7 +15,7 @@ enum Lighting: Codable{
     case brightIndirect
     case lowToMedium
 }
-enum Frequency: Codable{
+enum Frequency: Codable, Hashable{
     case xDays(Int)
     case xWeeks(Int)
     case xMonths(Int)
