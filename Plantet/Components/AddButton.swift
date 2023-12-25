@@ -9,11 +9,15 @@ import SwiftUI
 
 struct AddButton: View{
     @State private var animateGradient = false
+    @State private var formShown = false
     @Environment(\.modelContext) private var modelContext
-
+    
     func add(){
-        let newPlant = Plant(datePlanted: Date(), frequency: Frequency.xDays(3), name: "Planty", species: "The Potted Plant", light: Lighting.direct, lastPruned: Date(), lastFertilized: Date())
-        modelContext.insert(newPlant)
+        formShown = true
+    }
+    
+    func dismiss(){
+        formShown = false
     }
     
     var body: some View{
@@ -33,7 +37,9 @@ struct AddButton: View{
                     .font(.system(size: 30, weight: .bold))
                     .frame(width: 50, height: 50)
             }
-            
+        }
+        .sheet(isPresented: $formShown, onDismiss: dismiss){
+            AddForm(formShown: $formShown, animateGradient: $animateGradient)
         }
     }
 }
