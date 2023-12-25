@@ -50,10 +50,11 @@ struct AddForm: View{
                 }
                 
                 Section(header:Text("Care")){
+                    let xMessage: String = "Every " + ((newX==0) ? "X" : String(newX))
                     Picker("Watering Frequency", selection: $newWaterFrequency){
-                            Text("Every " + ((newX==0) ? "X" : String(newX))  + " Days").tag(Frequency.xDays(newX))
-                            Text("Every " + ((newX==0) ? "X" : String(newX))  + " Weeks").tag(Frequency.xWeeks(newX))
-                            Text("Every " + ((newX==0) ? "X" : String(newX))  + " Months").tag(Frequency.xMonths(newX))
+                            Text(xMessage  + " Days").tag(Frequency.xDays(newX))
+                            Text(xMessage + " Weeks").tag(Frequency.xWeeks(newX))
+                            Text(xMessage  + " Months").tag(Frequency.xMonths(newX))
                         Stepper(("X = " + ((newX==0) ? "?" : String(newX))), value: $newX)
                     }
                     .pickerStyle(.navigationLink)
