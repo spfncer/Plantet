@@ -12,6 +12,7 @@ struct AddForm: View{
     @Environment(\.modelContext) private var modelContext
     @Binding private var formShown: Bool
     @Binding private var animateGradient: Bool
+    @State private var showCancelAlert: Bool = false
     @State private var newName: String = ""
     @State private var newSpecies: String = ""
     @State private var newDatePlanted: Date = Date()
@@ -26,6 +27,14 @@ struct AddForm: View{
     }
     
     func dismiss(){
+        showCancelAlert = true
+    }
+    
+    func cancelDelete(){
+        showCancelAlert = false
+    }
+    
+    func delete(){
         formShown = false
     }
     
@@ -38,11 +47,6 @@ struct AddForm: View{
     var body: some View{
         NavigationStack {
             Form{
-                Section{
-                    Text("New Plant")
-                        .font(.headline)
-                }
-                .listRowBackground(Color.clear)
                 Section(header:Text("Basics")){
                     TextField("Plant Name",text: $newName)
                     TextField("Plant Species",text: $newSpecies)
@@ -52,9 +56,9 @@ struct AddForm: View{
                 Section(header:Text("Care")){
                     let xMessage: String = "Every " + ((newX==0) ? "X" : String(newX))
                     Picker("Watering Frequency", selection: $newWaterFrequency){
-                            Text(xMessage  + " Days").tag(Frequency.xDays(newX))
-                            Text(xMessage + " Weeks").tag(Frequency.xWeeks(newX))
-                            Text(xMessage  + " Months").tag(Frequency.xMonths(newX))
+                        Text(xMessage  + " Days").tag(Frequency.xDays(newX))
+                        Text(xMessage + " Weeks").tag(Frequency.xWeeks(newX))
+                        Text(xMessage  + " Months").tag(Frequency.xMonths(newX))
                         Stepper(("X = " + ((newX==0) ? "?" : String(newX))), value: $newX)
                     }
                     .pickerStyle(.navigationLink)
@@ -67,7 +71,6 @@ struct AddForm: View{
                         Text("Low to Medium").tag(Lighting.lowToMedium)
                     }
                 }
-                
                 Section{
                     Button(action: save){
                         Text("Save Plant!")
@@ -79,7 +82,23 @@ struct AddForm: View{
                 }
                 .listRowBackground(LinearGradient.linearGradient(colors: [Color("PlantetPrimary"), Color("PlantetSecondary")], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing))
             }
-        }
+            .alert("Proceed?", isPresented: $showCancelAlert, actions:{
+                Button(role: .destructive, action: delete, label: {
+                    Text("Yes")
+                })
+                Button(role: .cancel, action: cancelDelete, label:{
+                    Text("No")
+                })
+            }, message: {Text("Changes made to this plant will be lost!")})
             .navigationTitle("New Plant")
+            .toolbar{
+                ToolbarItem(placement:.topBarLeading){
+                    Button(action:dismiss){
+                        Text("Cancel")
+                            .foregroundStyle(Color(.red))
+                    }
+                }
+            }
+        }
     }
 }
