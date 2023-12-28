@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct PlantetApp: App {
     var sharedModelContainer: ModelContainer
+    @State private var addFormOpen: Bool = false
     
     init() {
         sharedModelContainer = {
@@ -29,8 +30,15 @@ struct PlantetApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(addFormOpen: $addFormOpen)
         }
         .modelContainer(sharedModelContainer)
+        .commands{
+            CommandGroup(replacing: .newItem) {
+                Button("New Plant"){
+                    addFormOpen = true
+                }
+            }
+        }
     }
 }

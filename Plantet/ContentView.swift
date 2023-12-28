@@ -10,17 +10,21 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @Binding var addFormOpen: Bool
+    
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)){
             Home()
-            AddButton()
+            AddButton(addFormOpen: $addFormOpen)
         }
     }
 }
 
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Plant.self, inMemory: true)
+//#Preview
+struct AddContainer_Previews: PreviewProvider {
+    @State static var isShowing = false
+    static var previews: some View {
+        ContentView(addFormOpen: $isShowing)
+    }
 }

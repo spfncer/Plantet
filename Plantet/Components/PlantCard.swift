@@ -66,9 +66,3 @@ struct PlantCard: View{
         }
     }
 }
-
-
-#Preview {
-    ContentView()
-        .modelContainer(for: Plant.self, inMemory: true)
-}

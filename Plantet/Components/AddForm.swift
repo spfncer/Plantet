@@ -26,22 +26,22 @@ struct AddForm: View{
         self._animateGradient = animateGradient
     }
     
-    func dismiss(){
+    func attemptDismiss(){
         showCancelAlert = true
     }
     
-    func cancelDelete(){
+    func cancelClose(){
         showCancelAlert = false
     }
     
-    func delete(){
+    func closeForm(){
         formShown = false
     }
     
     func save(){
         let newPlant = Plant(datePlanted: newDatePlanted, frequency: newWaterFrequency, name: newName, species: newSpecies, light: newLighting, lastPruned: Date(), lastFertilized: Date())
         modelContext.insert(newPlant)
-        dismiss()
+        closeForm()
     }
     
     var body: some View{
@@ -83,17 +83,17 @@ struct AddForm: View{
                 .listRowBackground(LinearGradient.linearGradient(colors: [Color("PlantetPrimary"), Color("PlantetSecondary")], startPoint: animateGradient ? .topLeading : .bottomLeading, endPoint: animateGradient ? .bottomTrailing : .topTrailing))
             }
             .alert("Proceed?", isPresented: $showCancelAlert, actions:{
-                Button(role: .destructive, action: delete, label: {
+                Button(role: .destructive, action: closeForm, label: {
                     Text("Yes")
                 })
-                Button(role: .cancel, action: cancelDelete, label:{
+                Button(role: .cancel, action: cancelClose, label:{
                     Text("No")
                 })
             }, message: {Text("Changes made to this plant will be lost!")})
             .navigationTitle("New Plant")
             .toolbar{
                 ToolbarItem(placement:.topBarLeading){
-                    Button(action:dismiss){
+                    Button(action:attemptDismiss){
                         Text("Cancel")
                             .foregroundStyle(Color(.red))
                     }

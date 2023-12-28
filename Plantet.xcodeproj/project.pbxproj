@@ -30,6 +30,7 @@
 		6F372F882B375B47009082DB /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		6F372F8B2B392080009082DB /* AddForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddForm.swift; sourceTree = "<group>"; };
 		6F7AF49A2B353C4700B23FB3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		6FBF4E542B3D19D500C1FCCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		6FDADFAA2B3280D800F189B0 /* Plant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +64,7 @@
 		6F353A3F2B2E81630088CD35 /* Plantet */ = {
 			isa = PBXGroup;
 			children = (
+				6FBF4E542B3D19D500C1FCCE /* Info.plist */,
 				6F372F8A2B375F87009082DB /* Views */,
 				6F372F872B375B39009082DB /* Components */,
 				6F353A402B2E81630088CD35 /* PlantetApp.swift */,
@@ -315,7 +317,9 @@
 				DEVELOPMENT_TEAM = KLLDL39D4K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Plantet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Plantet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -344,7 +348,9 @@
 				DEVELOPMENT_TEAM = KLLDL39D4K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Plantet/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Plantet;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

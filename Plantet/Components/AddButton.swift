@@ -9,15 +9,15 @@ import SwiftUI
 
 struct AddButton: View{
     @State private var animateGradient = false
-    @State private var formShown = false
+    @Binding var addFormOpen: Bool
     @Environment(\.modelContext) private var modelContext
     
     func add(){
-        formShown = true
+        addFormOpen = true
     }
     
     func dismiss(){
-        formShown = false
+        addFormOpen = false
     }
     
     var body: some View{
@@ -38,13 +38,8 @@ struct AddButton: View{
                     .frame(width: 50, height: 50)
             }
         }
-        .sheet(isPresented: $formShown, onDismiss: dismiss){
-            AddForm(formShown: $formShown, animateGradient: $animateGradient)
+        .sheet(isPresented: $addFormOpen, onDismiss: dismiss){
+            AddForm(formShown: $addFormOpen, animateGradient: $animateGradient)
         }
     }
-}
-
-#Preview{
-    AddButton()
-        .modelContainer(for: Plant.self, inMemory: true)
 }
