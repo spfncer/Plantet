@@ -20,7 +20,11 @@ struct AddForm: View{
     @State private var newWaterFrequency: Frequency = Frequency.xWeeks(0)
     @State private var newLastWatered: Date = Date()
     @State private var newLighting: Lighting = Lighting.brightIndirect
-    
+    @State private var storingLastPruned: Bool = false
+    @State private var newLastPruned: Date = Date()
+    @State private var storingFertilized: Bool = false
+    @State private var newFertilized: Date = Date()
+
     init(formShown: Binding<Bool>, animateGradient: Binding<Bool>){
         self._formShown = formShown
         self._animateGradient = animateGradient
@@ -71,6 +75,19 @@ struct AddForm: View{
                         Text("Low to Medium").tag(Lighting.lowToMedium)
                     }
                 }
+                Section(header:Text("Optional Care Items")){
+                        Toggle("Date Last Pruned?", isOn: $storingLastPruned)
+                        if storingLastPruned {
+                            DatePicker("Date Last Pruned", selection: $newLastPruned, displayedComponents: [.date])
+                                .transition(.slide)
+                        }
+                    Toggle("Date Last Fertilized", isOn:$storingFertilized)
+                    if storingFertilized{
+                        DatePicker("Date Last Fertilized", selection: $newFertilized, displayedComponents: [.date])
+                            .transition(.slide)
+                    }
+                }
+
                 Section{
                     Button(action: save){
                         Text("Save Plant!")
@@ -100,5 +117,13 @@ struct AddForm: View{
                 }
             }
         }
+    }
+}
+
+//#Preview
+struct AddForm_Previews: PreviewProvider {
+    @State static var isShowing = true
+    static var previews: some View {
+        ContentView(addFormOpen: $isShowing)
     }
 }
